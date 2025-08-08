@@ -1,36 +1,19 @@
-import { useEffect, useState } from 'react'
-
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import './App.css'
-import axios from 'axios';
+import About from "./About";
+import Home from "./Home";
+
 
 
 function App() {
-
-  const url = "http://localhost:8080/api/player?club=Arsenal";
-
-  const [player,setPlayer] = useState([]);
-
-  useEffect(() =>{ 
-    axios.get(url).then((response) => {
-        setPlayer(response.data)
-        console.log((response.data))
-    })
-}, []); 
-
-
-
-  
-
-  return (
-    
-      <>
-        {player.map((item =>(
-          <p>{item.player_name}</p>
-        )))}
-
-      </>
-    
-  )
+return(
+<Router>
+      <Routes>
+      <Route path="/" element={<Home />}/> 
+      <Route path="/about" element={<About/>}/>
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
