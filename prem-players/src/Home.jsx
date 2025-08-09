@@ -5,9 +5,12 @@ import { useEffect, useState } from 'react'
 
 const Home = () => {
 
-  const url = "http://localhost:8080/api/player?club=Arsenal";
+  const url = "http://localhost:8080/api/player";
 
   const [player,setPlayer] = useState([]);
+  const [search, setSearch] = useState("");
+
+
 
   useEffect(() =>{ 
     axios.get(url).then((response) => {
@@ -19,17 +22,26 @@ const Home = () => {
 
 
   return (
-          <>
-        {player.map((item =>(
-          <>
-          <p>{item.player_name}</p>
-          
-          <p>{item.position}</p>
-          <hr />
-          </>
-        )))}
+     <div>
+        <input type="text" placeholder='Search...' onChange={(event)=>{setSearch(event.target.value)}}/>
 
-      </>
+        {player.filter((val)=>{
+            if(val == ""){
+                return val
+            }else if(val.player_name.toLowerCase().includes(search)){
+                return val
+            }
+        }).map((val, key) =>{
+            return(
+                <div key={key}>
+                        <h1>{val.player_name}</h1>
+                </div>
+                
+            )
+        })
+        }
+
+    </div>
   )
 }
 
