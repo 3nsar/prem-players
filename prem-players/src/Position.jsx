@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const Nation = () => {
+const Position = () => {
 
   const url = "http://localhost:8080/api/player";
   const [players, setPlayers] = useState([]);
@@ -14,8 +14,8 @@ const Nation = () => {
     });
   }, []);
 
-  const nationalities = [...new Set(players.map(p => p.nationality))];
-  const filteredNations = nationalities.filter(club =>
+  const positions = [...new Set(players.map(p => p.position))];
+  const filteredPositions = positions.filter(club =>
     club.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -27,10 +27,10 @@ const Nation = () => {
         onChange={(event) => setSearch(event.target.value)}
       />
 
-      <h2>Nation</h2>
-      {filteredNations.map((nationality, index) => (
+      <h2>Position</h2>
+      {filteredPositions.map((position, index) => (
         <div key={index}>
-          <Link to={`/nationalities/${encodeURIComponent(nationality)}`}>{nationality}</Link>
+          <Link to={`/positions/${encodeURIComponent(position)}`}>{position}</Link>
         </div>
       ))}
     </div>
@@ -38,4 +38,4 @@ const Nation = () => {
 };
 
 
-export default Nation
+export default Position

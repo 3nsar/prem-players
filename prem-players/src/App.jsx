@@ -7,6 +7,8 @@ import Club from './Club';
 import ClubDetail from './ClubDetail';
 import Nation from './Nation';
 import NationDetail from './NationDetail';
+import Position from './Position';
+import PostionDetail from './PositionDetail';
 
 
 
@@ -22,6 +24,9 @@ return(
 
       <Route path="/nationalities" element={<Nation/>}/>
       <Route path="/nationalities/:nationalityName" element={<NationDetail/>}/>
+
+      <Route path="/positions" element={<Position/>}/>
+      <Route path="/positions/:positionName" element={<PostionDetail/>}/>
 
 
       </Routes>

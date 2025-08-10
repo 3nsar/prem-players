@@ -5,19 +5,19 @@ import { useParams, Link } from 'react-router-dom';
 
 const NationDetail = () => {
 
-const { nationalityName } = useParams();
-  const url = `http://localhost:8080/api/player?nationality=${nationalityName}`;
+const { positionName } = useParams();
+  const url = `http://localhost:8080/api/player?position=${positionName}`;
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     axios.get(url).then((response) => {
       setPlayers(response.data);
     });
-  }, [nationalityName]);
+  }, [positionName]);
 
   return (
     <div>
-      <h2>{nationalityName} Players</h2>
+      <h2>{positionName} Players</h2>
       {players.map((player, index) => (
         <div key={index} style={{borderBottom: '1px solid #ccc', marginBottom: '10px'}}>
           <p><strong>{player.player_name}</strong> ({player.position})</p>
@@ -31,7 +31,7 @@ const { nationalityName } = useParams();
           <p>Red Cards: {player.red_cards}</p>
         </div>
       ))}
-      <Link to="/nationalities">← Back to Nations</Link>
+      <Link to="/positions">← Back to Positions</Link>
     </div>
   );
 };
