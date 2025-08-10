@@ -9,12 +9,14 @@ import Nation from './Nation';
 import NationDetail from './NationDetail';
 import Position from './Position';
 import PostionDetail from './PositionDetail';
+import Navbar from './Navbar'
 
 
 
 function App() {
 return(
 <Router>
+  <Navbar />
       <Routes>
       <Route path="/" element={<Home />}/> 
       <Route path="/about" element={<About/>}/>
