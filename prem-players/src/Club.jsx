@@ -29,6 +29,8 @@ const Club = () => {
       <h2>Clubs</h2>
       {filteredClubs.map((club, index) => (
         <div key={index}>
+          <img src={`./images/clubs/${club}.png`} alt={club} />
+
           <Link to={`/clubs/${encodeURIComponent(club)}`}>{club}</Link>
         </div>
       ))}
