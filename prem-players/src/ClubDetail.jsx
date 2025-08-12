@@ -48,7 +48,7 @@ const ClubDetail = () => {
 
   return (
     <div className='flex min-h-screen flex-col justify-center items-center'>
-      <h2 className=''>{clubName}</h2>
+      <h2 className='text-xl'>{clubName}</h2>
 
       <Paper sx={{ maxWidth: 1000, overflow: 'hidden' }}>
         <TableContainer sx={{ maxHeight: 440 }}>
